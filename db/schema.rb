@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122061715) do
+ActiveRecord::Schema.define(version: 20141122111213) do
 
   create_table "comments", force: true do |t|
     t.text     "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20141122061715) do
     t.integer  "member_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_in_game"
+    t.integer  "member_limit"
   end
 
   create_table "users", force: true do |t|

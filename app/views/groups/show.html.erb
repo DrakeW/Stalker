@@ -1,2 +1,20 @@
 <h1>Groups#show</h1>
 <p>Find me in app/views/groups/show.html.erb</p>
+
+<p>
+  <strong>
+    Group Name: 
+  </strong>
+  <div><%= @group.name %></div>
+</p>
+<p>
+  <strong>
+    Member Limit: 
+  </strong>
+  <div><%= @group.member_limit %></div>
+</p>
+<p>
+<button type="button" class="btn">
+    <%= link_to "Back To Group List", groups_path %>
+  </button>
+</p>
