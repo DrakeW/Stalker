@@ -1,2 +1,9 @@
 <h1>Groups#new</h1>
 <p>Find me in app/views/groups/new.html.erb</p>
+
+<%= simple_form_for Group.new, :url => groups_path do |f| %>
+  <%= f.input :name %>
+  <%= f.input :member_limit %>
+  <br>
+  <%= f.button :submit %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122061715) do
+ActiveRecord::Schema.define(version: 20141123100545) do
 
   create_table "comments", force: true do |t|
     t.text     "title"
@@ -20,11 +20,24 @@ ActiveRecord::Schema.define(version: 20141122061715) do
     t.datetime "updated_at"
   end
 
+  create_table "group_members", force: true do |t|
+    t.string   "name"
+    t.string   "gender"
+    t.integer  "age"
+    t.boolean  "is_stalker"
+    t.boolean  "is_admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "group_id"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "name"
     t.integer  "member_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_in_game"
+    t.integer  "member_limit"
   end
 
   create_table "users", force: true do |t|
@@ -41,6 +54,9 @@ ActiveRecord::Schema.define(version: 20141122061715) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "gender"
+    t.integer  "age"
+    t.integer  "group_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

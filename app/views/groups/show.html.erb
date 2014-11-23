@@ -1,2 +1,36 @@
 <h1>Groups#show</h1>
 <p>Find me in app/views/groups/show.html.erb</p>
+
+<p>
+  <strong>
+    Group Name: 
+  </strong>
+  <div><%= @group.name %></div>
+</p>
+<p>
+  <strong>
+    Member Limit: 
+  </strong>
+  <div><%= @group.member_limit %></div>
+</p>
+<p>
+  <strong>
+    Members:
+  </strong>
+  <% GroupMember.all.each do |gm| %>
+    <p>
+    <% if gm.group_id == @group.id %>
+      <strong>Name: </strong><em><%= gm.name %></em>
+    <% end %>
+    </p>
+  <% end %>
+</p>
+<br>
+
+
+<p><button class="btn"><%= link_to "Join", new_group_group_member_path(@group) %></button></p>
+<p>
+  <button type="button" class="btn">
+    <%= link_to "Back To Group List", groups_path %>
+  </button>
+</p>
