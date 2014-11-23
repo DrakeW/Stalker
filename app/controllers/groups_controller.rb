@@ -32,5 +32,8 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :member_limit)
   end
+
+  def add_memeber
+  end
   
 end

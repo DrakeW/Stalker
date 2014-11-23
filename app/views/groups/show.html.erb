@@ -14,7 +14,23 @@
   <div><%= @group.member_limit %></div>
 </p>
 <p>
-<button type="button" class="btn">
+  <strong>
+    Members:
+  </strong>
+  <% GroupMember.all.each do |gm| %>
+    <p>
+    <% if gm.group_id == @group.id %>
+      <strong>Name: </strong><em><%= gm.name %></em>
+    <% end %>
+    </p>
+  <% end %>
+</p>
+<br>
+
+
+<p><button class="btn"><%= link_to "Join", new_group_group_member_path(@group) %></button></p>
+<p>
+  <button type="button" class="btn">
     <%= link_to "Back To Group List", groups_path %>
   </button>
 </p>
